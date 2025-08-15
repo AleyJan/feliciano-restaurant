@@ -1,0 +1,6 @@
+.section-divider {
+  border: none;
+  border-top: 2px solid rgba(0, 0, 0, 0.1); /* light grey line */
+  margin: 3rem auto;
+  width: 80%;
+}
