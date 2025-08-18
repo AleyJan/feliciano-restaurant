@@ -12,10 +12,9 @@
   background: linear-gradient(rgba(10, 10, 10, 0.4), rgba(10, 10, 10, 0.2)),
     url("/bg9.jpg");
   background-size: cover;
-  /* background-color: springgreen; */
 }
 
-.top-line {
+/* .top-line {
   padding: 10px;
   background-color: rgb(31, 31, 31);
 }
@@ -64,7 +63,6 @@
   cursor: pointer;
 }
 
-/* Navigation menu */
 .nav ul {
   display: flex;
   align-items: center;
@@ -83,7 +81,6 @@
   transition: color 0.3s ease;
 }
 
-/* Animated underline effect on hover */
 .nav ul li::after {
   content: "";
   position: absolute;
@@ -103,7 +100,6 @@
   width: 100%;
 }
 
-/* Button styling */
 .nav ul li button {
   padding: 8px 15px;
   border: 2px;
@@ -120,7 +116,7 @@
   color: rgb(211, 177, 129);
   transform: translateY(-2px);
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-}
+} */
 
 .main {
   width: 80%;
@@ -170,7 +166,7 @@
   }
 }
 
-.close-btn {
+/* .close-btn {
   position: absolute;
   top: 20px;
   right: 20px;
@@ -179,9 +175,7 @@
   font-size: 28px;
   cursor: pointer;
   z-index: 3000;
-}
-
-/* ===== Mobile Navbar ===== */
+} */
 
 @media (max-width: 480px) {
   .slide {
@@ -203,17 +197,17 @@
 }
 
 @media (max-width: 768px) {
-  .top-line {
+  /* .top-line {
     display: none;
   }
   .top-line ul {
     display: none;
-  }
+  } */
   .slide {
     font-size: 30px;
   }
 
-  .nav {
+  /* .nav {
     position: fixed;
     top: 0;
     right: -250px;
@@ -256,17 +250,17 @@
   }
   .close-btn {
     color: white;
-  }
+  } */
 }
 
-@media (min-width: 769px) {
+/* @media (min-width: 769px) {
   .menu-toggle {
     display: none;
   }
   .close-btn {
     display: none;
   }
-}
+} */
 
 .main2 {
   width: 80%;
@@ -275,7 +269,7 @@
   justify-content: space-around;
   gap: 24px;
   flex-wrap: wrap;
-  margin: 2rem auto; /* ensures gap from .main */
+  margin: 2rem auto;
   height: auto;
   position: relative;
   z-index: 1;
@@ -291,7 +285,7 @@
     width: 90%;
     min-height: 90vh;
     padding-bottom: 90%;
-    margin-bottom: 2rem; /* space before .main2 */
+    margin-bottom: 2rem;
   }
 
   .main2 {

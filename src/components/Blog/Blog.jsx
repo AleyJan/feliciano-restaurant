@@ -1,4 +1,4 @@
-import "../css/blog.css";
+import "./blog.css";
 
 const Blog = () => {
   return (

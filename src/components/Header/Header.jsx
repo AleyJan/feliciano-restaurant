@@ -1,28 +1,13 @@
 import { useState, useEffect } from "react";
-import "../css/home.css";
 
-const Home = () => {
+import "./header.css";
+
+const Header = ({ setCurrentPage }) => {
   const [menuOpen, setMenuOpen] = useState(false);
-
   const toggleMenu = () => setMenuOpen((prev) => !prev);
 
-  useEffect(() => {
-    const slides = document.querySelectorAll(".slide");
-    let index = 0;
-
-    const interval = setInterval(() => {
-      slides.forEach((slide, i) => {
-        slide.style.display = i === index ? "block" : "none";
-      });
-      index = (index + 1) % slides.length;
-    }, 3000);
-
-    return () => clearInterval(interval);
-  }, []);
-
   return (
-    <div className="container">
-      {/* Top bar */}
+    <>
       <div className="top-line">
         <ul>
           <li>
@@ -55,9 +40,10 @@ const Home = () => {
         </ul>
       </div>
 
-      {/* Navbar */}
       <header className="header">
-        <div className="logo">Feliciano</div>
+        <div className="logo" onClick={() => setCurrentPage("home")}>
+          Feliciano
+        </div>
         <button className="menu-toggle" onClick={toggleMenu}>
           ☰
         </button>
@@ -66,52 +52,19 @@ const Home = () => {
             ✖
           </button>
           <ul>
-            <li>Home</li>
-            <li>About</li>
-            <li>Blog</li>
-            <li>Contact</li>
-            <li>
+            <li onClick={() => setCurrentPage("home")}>Home</li>
+            <li onClick={() => setCurrentPage("about")}>About</li>
+            <li onClick={() => setCurrentPage("services")}>Services</li>
+            <li onClick={() => setCurrentPage("blog")}>Blog</li>
+            <li onClick={() => setCurrentPage("contact")}>Contact</li>
+            <li onClick={() => setCurrentPage("contact")}>
               <button>Book a table</button>
             </li>
           </ul>
         </nav>
       </header>
-
-      {/* Hero Section */}
-      <section className="main">
-        <div id="falicion-text">Feliciano</div>
-        <div className="slider">
-          <div className="slide">Best Cuisine</div>
-          <div className="slide">Nutritious & Tasty</div>
-          <div className="slide">Delicious Specialities</div>
-        </div>
-      </section>
-
-      {/* Menu Items Section */}
-      <section className="main2">
-        <div className="img">
-          <img src="/steak.png" alt="steak" width={120} />
-          <h4>Beef Steak</h4>
-          <p>Juicy tender steak</p>
-        </div>
-        <div className="img">
-          <img src="/egg.png" alt="egg" width={120} />
-          <h4>Fried Egg</h4>
-          <p>Perfect for Breakfast</p>
-        </div>
-        <div className="img">
-          <img src="/hummus.png" alt="hummus" width={120} />
-          <h4>Hummus with Salad</h4>
-          <p>Appetizer</p>
-        </div>
-        <div className="img">
-          <img src="/pizza.png" alt="pizza" width={120} />
-          <h4>Pizza</h4>
-          <p>Italian Pizza</p>
-        </div>
-      </section>
-    </div>
+    </>
   );
 };
 
-export default Home;
+export default Header;

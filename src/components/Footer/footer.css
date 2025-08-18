@@ -21,6 +21,11 @@
   font-size: 32px;
   color: rgb(200, 169, 126);
 }
+.footer-logo:hover {
+  color: white;
+  transform: scale(1.05);
+  cursor: pointer;
+}
 
 .footer-nav {
   display: flex;
