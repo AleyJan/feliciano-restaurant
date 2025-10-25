@@ -192,3 +192,9 @@
     display: none;
   }
 }
+
+.logo a,
+.nav ul li a {
+  text-decoration: none;
+  color: inherit; /* use the same color as parent li */
+}

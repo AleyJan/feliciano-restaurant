@@ -1,5 +1,8 @@
 import { useState, useEffect } from "react";
 import "./home.css";
+import Footer from "../../components/Footer/Footer";
+import Header from "../../components/Header/Header";
+import About from "../About/About";
 
 const Home = () => {
   // const [menuOpen, setMenuOpen] = useState(false);
@@ -21,8 +24,10 @@ const Home = () => {
   }, []);
 
   return (
-    <div className="container">
-      {/* <div className="top-line">
+    <>
+      <Header />
+      <div className="container">
+        {/* <div className="top-line">
         <ul>
           <li>
             <svg
@@ -76,40 +81,43 @@ const Home = () => {
         </nav>
       </header> */}
 
-      {/* Hero Section */}
-      <section className="main">
-        <div id="falicion-text">Feliciano</div>
-        <div className="slider">
-          <div className="slide">Best Cuisine</div>
-          <div className="slide">Nutritious & Tasty</div>
-          <div className="slide">Delicious Specialities</div>
-        </div>
-      </section>
+        {/* Hero Section */}
+        <section className="main">
+          <div id="falicion-text">Feliciano</div>
+          <div className="slider">
+            <div className="slide">Best Cuisine</div>
+            <div className="slide">Nutritious & Tasty</div>
+            <div className="slide">Delicious Specialities</div>
+          </div>
+        </section>
 
-      {/* Menu Items Section */}
-      <section className="main2">
-        <div className="img">
-          <img src="/steak.png" alt="steak" width={120} />
-          <h4>Beef Steak</h4>
-          <p>Juicy tender steak</p>
-        </div>
-        <div className="img">
-          <img src="/egg.png" alt="egg" width={120} />
-          <h4>Fried Egg</h4>
-          <p>Perfect for Breakfast</p>
-        </div>
-        <div className="img">
-          <img src="/hummus.png" alt="hummus" width={120} />
-          <h4>Hummus with Salad</h4>
-          <p>Appetizer</p>
-        </div>
-        <div className="img">
-          <img src="/pizza.png" alt="pizza" width={120} />
-          <h4>Pizza</h4>
-          <p>Italian Pizza</p>
-        </div>
-      </section>
-    </div>
+        {/* Menu Items Section */}
+        <section className="main2">
+          <div className="img">
+            <img src="/steak.png" alt="steak" width={120} />
+            <h4>Beef Steak</h4>
+            <p>Juicy tender steak</p>
+          </div>
+          <div className="img">
+            <img src="/egg.png" alt="egg" width={120} />
+            <h4>Fried Egg</h4>
+            <p>Perfect for Breakfast</p>
+          </div>
+          <div className="img">
+            <img src="/hummus.png" alt="hummus" width={120} />
+            <h4>Hummus with Salad</h4>
+            <p>Appetizer</p>
+          </div>
+          <div className="img">
+            <img src="/pizza.png" alt="pizza" width={120} />
+            <h4>Pizza</h4>
+            <p>Italian Pizza</p>
+          </div>
+        </section>
+        {/* <About /> */}
+        <Footer />
+      </div>
+    </>
   );
 };
 

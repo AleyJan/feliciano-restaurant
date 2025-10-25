@@ -80,3 +80,9 @@
     justify-content: center;
   }
 }
+
+.footer-logo a,
+.footer-nav a {
+  text-decoration: none;
+  color: inherit;
+}

@@ -1,31 +1,21 @@
 import "./footer.css";
-
+import { Link } from "react-router-dom";
 import { FaFacebookF, FaInstagram, FaTwitter } from "react-icons/fa";
 
-const Footer = ({ setCurrentPage }) => {
+const Footer = () => {
   return (
     <footer className="footer">
       {/* Top Section */}
       <div className="footer-top">
-        <h2 className="footer-logo" onClick={() => setCurrentPage("home")}>
-          Feliciano
+        <h2 className="footer-logo">
+          <Link to="/">Feliciano</Link>
         </h2>
         <nav className="footer-nav">
-          <a onClick={() => setCurrentPage("home")} href="#home">
-            Home
-          </a>
-          <a onClick={() => setCurrentPage("blog")} href="#blog">
-            Blog
-          </a>
-          <a onClick={() => setCurrentPage("about")} href="#about">
-            About
-          </a>
-          <a onClick={() => setCurrentPage("services")} href="#services">
-            Services
-          </a>
-          <a onClick={() => setCurrentPage("contact")} href="#contact">
-            Contact
-          </a>
+          <Link to="/">Home</Link>
+          <Link to="/blog">Blog</Link>
+          <Link to="/about">About</Link>
+          <Link to="/services">Services</Link>
+          <Link to="/contact">Contact</Link>
         </nav>
         <div className="footer-social">
           <a href="#">

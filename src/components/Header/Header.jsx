@@ -1,10 +1,28 @@
 import { useState, useEffect } from "react";
+import { Link, useNavigate } from "react-router-dom";
 
 import "./header.css";
+import CartIcon from "../CartIcon/CartIcon";
 
-const Header = ({ setCurrentPage }) => {
+const Header = () => {
   const [menuOpen, setMenuOpen] = useState(false);
+  const [user, setUser] = useState(null);
+  const navigate = useNavigate();
+
   const toggleMenu = () => setMenuOpen((prev) => !prev);
+
+  // Check if user is logged in (from localStorage)
+  useEffect(() => {
+    const authUser = JSON.parse(localStorage.getItem("authUser"));
+    if (authUser) {
+      setUser(authUser);
+    }
+  }, []);
+
+  const handleLogout = () => {
+    localStorage.removeItem("authUser"); // ✅ removes it
+    navigate("/login"); // redirect to login
+  };
 
   return (
     <>
@@ -41,8 +59,8 @@ const Header = ({ setCurrentPage }) => {
       </div>
 
       <header className="header">
-        <div className="logo" onClick={() => setCurrentPage("home")}>
-          Feliciano
+        <div className="logo">
+          <Link to="/">Feliciano</Link>
         </div>
         <button className="menu-toggle" onClick={toggleMenu}>
           ☰
@@ -52,13 +70,53 @@ const Header = ({ setCurrentPage }) => {
             ✖
           </button>
           <ul>
-            <li onClick={() => setCurrentPage("home")}>Home</li>
-            <li onClick={() => setCurrentPage("about")}>About</li>
-            <li onClick={() => setCurrentPage("services")}>Services</li>
-            <li onClick={() => setCurrentPage("blog")}>Blog</li>
-            <li onClick={() => setCurrentPage("contact")}>Contact</li>
-            <li onClick={() => setCurrentPage("contact")}>
-              <button>Book a table</button>
+            <li>
+              <Link to="/" onClick={toggleMenu}>
+                Home
+              </Link>
+            </li>
+            <li>
+              <Link to="/about" onClick={toggleMenu}>
+                About
+              </Link>
+            </li>
+            <li>
+              <Link to="/services" onClick={toggleMenu}>
+                Services
+              </Link>
+            </li>
+            <li>
+              <Link to="/blog" onClick={toggleMenu}>
+                Blog
+              </Link>
+            </li>
+            <li>
+              <Link to="/contact" onClick={toggleMenu}>
+                Contact
+              </Link>
+            </li>
+            <li>
+              <Link to="/menu" onClick={toggleMenu}>
+                Menu
+              </Link>
+            </li>
+            <li>
+              <Link to="/cart" onClick={toggleMenu}>
+                <CartIcon />
+              </Link>
+            </li>
+            <li>
+              {user ? (
+                <div className="flex gap-2 items-center">
+                  <button onClick={handleLogout} className="logout-btn">
+                    Logout
+                  </button>
+                </div>
+              ) : (
+                <Link to="/login" onClick={toggleMenu}>
+                  <button>Login / Register</button>
+                </Link>
+              )}
             </li>
           </ul>
         </nav>
